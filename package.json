@@ -1,0 +1,33 @@
+{
+  "name": "svelte-read-more",
+  "version": "1.0.1",
+  "author": "saideepesh000",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "svelte": "src/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "rollup": "^2.58.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "svelte": "^3.44.0"
+  },
+  "keywords": [
+    "svelte",
+    "read more",
+    "show more",
+    "svelte read more"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saideepesh000/svelte-read-more"
+  },
+  "bugs": {
+   "url": "https://github.com/saideepesh000/svelte-read-more/issues"
+  }
+}
