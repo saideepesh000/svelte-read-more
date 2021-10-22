@@ -68,3 +68,13 @@ non luctus dolor. Vestibulum consectetur ipsum nec sem eleifend ultricies. Lorem
 
 <ReadMore textContent={content} maxChars={10} dotDotDot='---'/>
 ```
+### Options
+
+| Name | Description | Type | Default value
+| -------------- |  ---------------- |  ---------------- |  ---------------- |
+| textContent | The text that we want to show dynamically | string | null
+| maxChars | The maximum number of characters that we want to show  | number | `20`
+| readMoreLabel | The label for `read more` button | string | `Read more`
+| readLessLabel | The label for `read less` button | string | `Read less`
+| dotDotDot | The ellipsis | string | `...`
+
