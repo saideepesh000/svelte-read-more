@@ -26,7 +26,7 @@ non luctus dolor. Vestibulum consectetur ipsum nec sem eleifend ultricies. Lorem
 
 </script>
 
-<ReadMore textContent = {content} maxChars={10}/>
+<ReadMore textContent={content} maxChars={10}/>
 ```
 
 ### Override Labels
