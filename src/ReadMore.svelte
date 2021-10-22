@@ -1,17 +1,18 @@
 <script>
-    import { getMaxChars } from './utils/getMaxChars';
-    export let children; 
+    import { getMaxCharacters, isFullText } from './utils';
+    export let textContent;
     export let readMoreLabel = 'Read more';
     export let readLessLabel = 'Read less';
-    export let maxCharacters;
-    export let spreadOperator = '...';
+    export let maxChars = 20;
+    export let dotDotDot = '...';
 
     let text
     let isOpen = false
-    const cleanChildren = children.replace(/\s+/g, ' ').trim();
+    const cleanText= textContent.replace(/\s+/g, ' ').trim();
     $: finalLabel = isOpen ? readLessLabel : readMoreLabel
-    $: finalText = getMaxChars(maxCharacters, isOpen, cleanChildren, text)
-    $: finalSymbol = isOpen ? '' : spreadOperator
+    $: finalText = getMaxCharacters(maxChars, isOpen, cleanText, text)
+    $: finalSymbol = isOpen ? '' : dotDotDot
+    $: showButton = (!isOpen && isFullText(finalText, cleanText)) ? false : true
 
     const handleClick = () => {
         isOpen = !isOpen
@@ -19,11 +20,13 @@
 </script>
 
 <div data-testid="wrapper">
-    {finalText}{finalSymbol}
+    {finalText}
     <span
         data-testid="button-wrapper"
+        data-visible={`${showButton}`}
         class="button-wrapper"
     >
+        {!isOpen ? finalSymbol: ''}
         <button
             data-testid="button"
             on:click={handleClick}
@@ -38,6 +41,10 @@
     /* custom styles */
 .button-wrapper {
     white-space: nowrap;
+    margin-left: -4px;
+}
+span[data-visible='false'] {
+        visibility: hidden;
 }
 .button {
     border: 0;
@@ -49,7 +56,7 @@
 .button::first-letter {
 	text-transform: uppercase;
 }
-.button::hover {
+.button:hover {
 	text-decoration: none;
 }
 </style>

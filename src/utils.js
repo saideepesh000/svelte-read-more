@@ -1,10 +1,9 @@
-export const getMaxChars = (
+export const getMaxCharacters = (
     maxCharacters,
     isOpen,
     children,
     text
 ) => {
-        console.log('maxCharacters', maxCharacters)
         if (maxCharacters) {
             if (isOpen) {
                 text = children
@@ -13,4 +12,13 @@ export const getMaxChars = (
             }
             return text
         }
+};
+
+
+export const isFullText = (truncatedText, text) => {
+    return (
+        truncatedText &&
+        truncatedText.split('').filter((c) => c !== ' ').length ===
+            text.split('').filter((c) => c !== ' ').length
+    );
 };
