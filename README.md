@@ -3,6 +3,10 @@
 
 A small & simple svelte component to render text dynamically using `read more` or `show more` & `read less` or `show less` (similar) labels
 
+## Installation
+
+`npm i svelte-read-more`
+
 ## Usage 
 
 ### Basic
@@ -22,7 +26,7 @@ non luctus dolor. Vestibulum consectetur ipsum nec sem eleifend ultricies. Lorem
 
 </script>
 
-<ReadMore content = {content} maxCharacters={10}/>
+<ReadMore textContent = {content} maxChars={10}/>
 ```
 
 ### Override Labels
@@ -42,7 +46,7 @@ non luctus dolor. Vestibulum consectetur ipsum nec sem eleifend ultricies. Lorem
 
 </script>
 
-<ReadMore content = {content} maxCharacters={10} readMoreLabel='Show more' readLessLabel='Show less'/>
+<ReadMore textContent={content} maxChars={10} readMoreLabel='Show more' readLessLabel='Show less'/>
 ```
 
 ### Override dot-dot-dot
@@ -62,5 +66,5 @@ non luctus dolor. Vestibulum consectetur ipsum nec sem eleifend ultricies. Lorem
 
 </script>
 
-<ReadMore content = {content} maxCharacters={10} dotDotDot='---'/>
+<ReadMore textContent={content} maxChars={10} dotDotDot='---'/>
 ```
