@@ -1,16 +1,18 @@
 <script>
-    import { getMaxCharacters, isFullText } from './utils';
+    import { getMaxCharacters, getMaxWords, isFullText } from './utils';
     export let textContent;
     export let readMoreLabel = 'Read more';
     export let readLessLabel = 'Read less';
-    export let maxChars = 20;
+    export let maxChars;
+    export let maxWords;
     export let dotDotDot = '...';
 
     let text
     let isOpen = false
     const cleanText= textContent.replace(/\s+/g, ' ').trim();
     $: finalLabel = isOpen ? readLessLabel : readMoreLabel
-    $: finalText = getMaxCharacters(maxChars, isOpen, cleanText, text)
+    $: maxCharsText = getMaxCharacters(maxChars, isOpen, cleanText, text)
+    $: finalText = getMaxWords(maxWords, isOpen, maxCharsText, text)
     $: finalSymbol = isOpen ? '' : dotDotDot
     $: showButton = (!isOpen && isFullText(finalText, cleanText)) ? false : true
 
